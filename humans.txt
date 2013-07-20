@@ -1,0 +1,27 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+Web Developer: Glenn Naessens
+Site: http://www.glennnaessens.com/
+Twitter: @glennnaessens
+Location: Halifax, Canada
+
+
+     .:+osyyyso+-`                                          
+ `-:++oyNMMMMMMMMMd+                                        
+         :NMMMMMMMMMd`                                      
+          -MMMMMMMMMMo`.----.                               
+          .MMMMMMMMMMhdMMMMMMMdo.                           
+          yMMMMMMMMMs  `oMMMMMMMM+                          
+         /MMMMMMMMMd     yMMMMMMMm.:/++/:.                  
+        .NMMMMMMMMN.     mMMMMMMMo:+yMMMMMNs`               
+        dMMMMMMMMM+     oMMMMMMMh    :MMMMMMo  ``           
+       oMMMMMMMMMy     :MMMMMMMN`    :MMMMMMo+hMMMNy-       
+      :MMMMMMMMMm`    `NMMMMMMM:    `mMMMMMy   /MMMMMs      
+     `NMMMMMMMMM-     hMMMMMMMo     yMMMMMm`   oMMMMMMd`    
+     hMMMMMMMMMo     +MMMMMMMd     +MMMMMM-   -MMMMMMMMm-   
+    oMMMMMMMMMN     -MMMMMMMN.    .NMMMMM+   `mMMMMMMMMMN/  
+    hMMMMMMMMMM`    mMMMMMMMy    `dMMMMMh    yMMMMMMMMMMMy` 
+    :NMMMMMMMMMd-   mMMMMMMMm.   /MMMMMMs   +MMMMMMMMMMy.   
+     `omMMMMMMMMMmyosNNMMMMMMNy/::mMMMMMMs-`+MMMMMMMNy.     
+        .:+osyyyso+:.  -+osyyss+/. `/osyyso/-./syys/`  
