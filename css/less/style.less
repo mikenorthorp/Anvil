@@ -1,11 +1,11 @@
 /*
 Author: Glenn Naessens
 Web: glennnaessens.com
-Date of creation: 21/01/2013
+Date of creation: 01/04/2013
 */
 
 @import 'normalize.less';
-@import 'CSS3.less';
+@import 'mixins.less';
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////// CONFIG ///////////////////////////////////////////////////////////////////
@@ -177,6 +177,37 @@ strong.highlighted{
   color: @secondary;
 }
 
+.columns{
+  .clearfix();
+  width: 100%;
+
+  & > *{
+    float: left;
+    margin: 0 0 1em 0;
+
+    &:first-child{
+    }
+  }
+
+  &.two{
+    & > *{
+      width: 100%;
+    }
+  }
+
+  &.three{
+    & > *{
+      width: 100%;
+    }
+  }
+
+  &.four{
+    & > *{
+      width: 100%;
+    }
+  }
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////// FLUID ////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -185,6 +216,7 @@ header > div, footer > div, header + div{
   width: 94%;
   padding: 0 3%;
 }
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -205,9 +237,7 @@ header > div, footer > div, header + div{
 
 @media only screen and (min-width : 768px) {
   header > div, footer > div, header + div{
-    width: 60em;
-    padding: 0;
-    margin: 0 auto;
+
   }
 }
 
@@ -217,20 +247,12 @@ header > div, footer > div, header + div{
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-@media only screen and (min-width: 1140px) {
+@media only screen and (min-width: 1152px) {
   header > div, footer > div, header + div{
-
+    width: 70em;
+    margin: 0 auto;
+    padding: 0;
   }
-}
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////// IE ///////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////
-
-//fix for IE font rendering
-.lt-ie10{
-  body{ opacity:.9999; }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -250,4 +272,5 @@ header > div, footer > div, header + div{
   @page { margin: 0.5cm; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
+  header, footer, aside { display: none; visibility: hidden; }
 }
