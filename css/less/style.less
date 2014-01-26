@@ -38,7 +38,7 @@ Date of creation: 01/04/2013
 
 ::-moz-selection, ::selection { background: @select; color: #fff; text-shadow: none; }
 
-body                          { font-family: @serif; font-size: 1em; line-height: 1.75; color: @text;}
+body                          { font-family: @serif; font-size: 1em; line-height: 1.5; color: @text; font-weight: 400; }
 
 a{
   color: @primary;
@@ -47,13 +47,13 @@ a{
   &:active { color: darken(@primary, 10%); }
 }
 
-h1                            { font-size: 3em; }
-h2                            { font-size: 2.5em; }
-h3                            { font-size: 2em; }
-h4                            { font-size: 1.5em; }
-h5                            { font-size: 1em; }
+h1                            { font-size: 2em; }
+h2                            { font-size: 1.5em; }
+h3                            { font-size: 1.25em; }
+h4                            { font-size: 1em; text-transform: uppercase; }
+h5                            { font-size: 1em; text-transform: uppercase; }
 h6                            { font-size: 1em; }
-h1, h2, h3, h4, h5, h6        { margin: 1em 0 0.5em 0; line-height: 1.25; }
+h1, h2, h3, h4, h5, h6        { clear: left; margin: 1em 0 0.25em 0; line-height: 1.125; font-weight: 500; }
 h1 + h2, h2 + h3, h3+ h4, h4 + h5, h5 + h6, h1:first-child { margin-top: 0; }
 
 abbr, small,
@@ -66,24 +66,50 @@ p+p                           { text-indent: 0; }
 pre                           { }
 ul, ol, dl, dialog            { margin-top: 0; }
 
-figure.quote{
-  padding-left: 2em;
-  margin: 1em 0;
+figure{
+  margin: 1.5em 0;
 
-  blockquote{
-    font-size: 2em;
-    font-style: italic;
+  img{
+    max-width: 100%;
+    height: auto;
+  }
 
-    &:before{
-      content: '“';
+  &.quote{
+    margin: 1.5em 0 1.5em -2.5%;
+    padding: 0 0 0 2%;
+    border-left: solid 3px @darkgrey;
+
+    blockquote{
+      margin: 0 0 0.35em;
+      font-size: 1.2em;
+      font-style: italic;
+      font-family: @serif;
+      line-height: 1.375;
+
+      &:before{
+        content: '“';
+      }
+
+      &:after{
+        content: '”';
+      }
     }
 
-    &:after{
-      content: '”';
+    figcaption{
+      font-style: normal;
+
+      cite{
+        &:before{
+          content: ' - ';
+        }
+      }
     }
   }
+
   figcaption{
     font-size: 0.875em;
+    font-style: italic;
+    line-height: 1.25;
     color: @grey;
   }
 }
@@ -91,13 +117,17 @@ figure.quote{
 table                         { width: 100%; margin-bottom: 1em; }
 th, td                        { border-top: solid 1px @lightgrey; padding: 0.25em 0.25em 0; vertical-align: top; }
 tr:nth-child(odd) td          { background: lighten(@lightgrey, 4%); }
-th                            { font-size: 0.875em; border-top: 0; border-bottom: solid 1px darken(@lightgrey, 10%); text-align: left; color: @black; }
+th                            { font-size: 0.875em; border-top: 0; border-bottom: solid 1px darken(@lightgrey, 10%); text-align: center; color: @black; background: @lightgrey; }
+td                            { text-align: center; }
+tbody th                      { text-align: left; }
 
 form                          { overflow: visible; }
 fieldset                      { margin-bottom: 1em; }
 legend                        { padding: 0 0.5em; font-size: 0.75em; }
-label                         { line-height: 1; }
+label                         { line-height: 1; display: inline-block; width: 100%; }
 input, select, textarea {
+  .box-sizing(border-box);
+  max-width: 100%;
   margin-bottom: 0.5em;
   line-height: 1;
 
@@ -121,8 +151,12 @@ input[type="time"],
 input[type="number"],
 input[type="range"],
 input[type="color"]           { padding: 0.5em 0.5em 0.25em; border: solid 1px @grey; }
+
 input[type="radio"],
 input[type="checkbox"]        { vertical-align: top; margin: 0.25em 0.5em 0 0; }
+
+input[type="file"]            { max-width: 16em; overflow: hidden; }
+
 
 input[type="submit"],
 input[type="reset"],
@@ -132,6 +166,7 @@ button {
   background: @lightgrey;
   border: solid 1px @lightgrey;
   color: @darkgrey;
+  .box-sizing(border-box);
 
   &:hover, &.focus{
     color: @white;
@@ -147,7 +182,7 @@ textarea                      { overflow: auto; line-height: 1.5;}
 
 /////////////////// Utilities ////////////////////////////////////////////////////////////////////
 
-.embedvideo{
+.preserve-ar{
   position: relative;
   padding: 30px 0 56.25%;
   height: 0;
@@ -177,44 +212,13 @@ strong.highlighted{
   color: @secondary;
 }
 
-.columns{
-  .clearfix();
-  width: 100%;
-
-  & > *{
-    float: left;
-    margin: 0 0 1em 0;
-
-    &:first-child{
-    }
-  }
-
-  &.two{
-    & > *{
-      width: 100%;
-    }
-  }
-
-  &.three{
-    & > *{
-      width: 100%;
-    }
-  }
-
-  &.four{
-    & > *{
-      width: 100%;
-    }
-  }
-}
-
 //////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////// FLUID ////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 header > div, footer > div, header + div{
   width: 94%;
-  padding: 0 3%;
+  margin: 0 3%;
 }
 
 
@@ -226,7 +230,7 @@ header > div, footer > div, header + div{
 @media only screen and (min-width : 480px) {
   header > div, footer > div, header + div{
     width: 96%;
-    padding: 0 2%;
+    margin: 0 2%;
   }
 }
 
@@ -236,6 +240,19 @@ header > div, footer > div, header + div{
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 @media only screen and (min-width : 768px) {
+  h1 { font-size: 3.25em; }
+  h2 { font-size: 2.5em; }
+  h3 { font-size: 2em; }
+  h4 { font-size: 1.5em; }
+  h5 { font-size: 1em; }
+  h6 { font-size: 1em; }
+
+  figure.quote{
+    blockquote{
+      font-size: 1.25em;
+    }
+  }
+
   header > div, footer > div, header + div{
 
   }
@@ -247,7 +264,7 @@ header > div, footer > div, header + div{
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 
-@media only screen and (min-width: 1152px) {
+@media only screen and (min-width: 1280px) {
   header > div, footer > div, header + div{
     width: 70em;
     margin: 0 auto;
