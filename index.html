@@ -2,24 +2,26 @@
 <html class="no-js" lang="en">
 <head>
 	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<title>Title</title>
-	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<meta name="author" content="" />
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:image" content="Share image" />
+	<meta property="og:title" content="Share title" />
+	<meta property="og:url" content="Share url" />
+	<meta property="og:site_name" content="Share site name" />
 
-	<!-- |||||||||||||||||||||||||| Remove when website is not responsive ||||||||||||||||||||||| -->
-	<meta name="HandheldFriendly" content="True" />
-	<meta name="MobileOptimized" content="320" />
-		<!-- full screen web app capable pages -->
+	<link rel="author" href="humans.txt" />
+
+	<!-- |||||||||||||||||||||||||| For Web Apps only ||||||||||||||||||||||| -->
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<link rel="apple-touch-startup-image" href="/img/splash.png" />
-	<!-- |||||||||||||||||||||||||| Remove when website is not responsive ||||||||||||||||||||||| -->
+	<!-- |||||||||||||||||||||||||| For Web Apps only ||||||||||||||||||||||| -->
 
-	<link rel="stylesheet" media="screen, print" href="/css/style.css" />
+	<link rel="stylesheet" href="/css/style.css" media="all">
 
 	<link href="/favicon.ico" rel="icon" type="image/x-icon" />
 	<link rel="apple-touch-icon-precomposed" href="/shortcut.png" />
@@ -31,23 +33,21 @@
 <body>
 	<header role="banner">
 		<div class="logo">
-			<svg width="100" height="100">
-				<image xlink:href="/img/logo.svg" src="/img/logo.png" width="100" height="100"/>
-			</svg>
+			<img src="/img/logo.svg" alt="Logo" />
 		</div>
 		<nav role="navigation">
 
 		</nav>
 	</header>
 
-	<div>
+	<main>
 		<article role="main">
 
 		</article>
 		<aside role="complementary">
 
 		</aside>
-	</div>
+	</main>
 
 	<footer role="contentinfo">
 		<small>&copy; copyright 2014</small>
@@ -56,6 +56,7 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="/js/jquery-1.10.2.min.js"><\/script>')</script>
 
+	<script src="/js/plugins.min.js"></script>
 	<script src="/js/script.min.js"></script>
 
 	<script type="text/javascript">

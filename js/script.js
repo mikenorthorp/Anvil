@@ -16,11 +16,15 @@ var APP = (function () {
 
 	function getSVGsupport() {
 		return document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure", "1.1");
-	};
+	}
 
 	function getMQsupport() {
 		return (typeof window.matchMedia == 'function');
-	};
+	}
+
+	function isTouch() {
+		return 'ontouchstart' in window || 'onmsgesturechange' in window;
+	}
 
 	function getNthChildSupport() {
 		// selectorSupported lovingly lifted from the mad italian genius, Diego Perini
@@ -63,26 +67,12 @@ var APP = (function () {
 		};
 
 		return support(selector);
-	};
+	}
 
 	function getViewportSize() {
-		//adds a class to the body according to the device and returns an integer when called.
-		var devices = ['mobile', 'tablet', 'desktop', 'luxury'],
-		s = document.body.clientWidth,
-		c = document.body.className,
-		d = 3;
-
-		if(s < 480){
-			d = 0;
-		}else if(s < 768){
-			d = 1;
-		}else if(s <= 960){
-			d = 2;
-		}
-
-		if (c.indexOf(devices[d]) !== -1) { document.body.className += ' ' + devices[d]; };
-		return d;
-	};
+		browser.viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+		browser.viewportHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+	}
 
 	/////////////////////////////////////////////////////////////////
 	////////////////////// PUBLIC FUNCTIONS /////////////////////////
@@ -96,8 +86,12 @@ var APP = (function () {
 	browser.supportsMQ = getMQsupport();
 	browser.supportsNthChild = getNthChildSupport();
 	browser.viewportSize = getViewportSize();
+	browser.isTouch = isTouch();
+	browser.viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+	browser.viewportHeight = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
 	$(window).resize(function() {
-		browser.viewportSize = getViewportSize();
+		getViewportSize();
 	});
 	me.browser = browser;
 
@@ -109,6 +103,11 @@ var APP = (function () {
 
 	if (!APP.browser.supportsSVG) {
 		$('html').addClass('no-svg');
+
+		$('img').each(	function(n){
+			var src = n.src;
+			n.src = src.replace('.svg', '.png');
+		});
 	}
 
 	if (!APP.browser.supportsMQ) {
@@ -117,9 +116,11 @@ var APP = (function () {
 		document.body.appendChild(respond);
 	}
 
-	//CAST YOUR MAGIC HERE!
-
 	if (!APP.browser.supportsNthChild) {
 		//Test for nth-child support and add .clearrow class when not supported
 	}
+
+
+	//CAST YOUR MAGIC HERE!
+
 }());
